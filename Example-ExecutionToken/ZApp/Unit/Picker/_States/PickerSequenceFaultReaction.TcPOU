@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="PickerSequenceFaultReaction" Id="{05bafaea-6fe3-481f-b20a-538e2741853d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PickerSequenceFaultReaction EXTENDS PickerSequence IMPLEMENTS ZCore.ISequence
+VAR
+  _step : ZCore.Step(PickerStep.FaultReactionBegin, PickerStep.FaultReactionEnd);
+  _timerSim : ZAux.Timer;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF OnStart(_step) THEN
+  ; // init custom sequence variables here ...
+END_IF
+
+REPEAT
+  LogStep();
+
+  CASE _step.Index OF
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    PickerStep.FaultReactionBegin:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      IF _step.OnEntry()
+      THEN
+        _timerSim.WaitAsync(5);
+			END_IF
+      
+      Await(_timerSim, nextStep:=PickerStep.FaultReactionEnd);
+      // _step.SetNext(index:=PickerStep.FaultReactionEnd);
+
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    PickerStep.FaultReactionEnd:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)    
+      SetBusy(FALSE);
+  
+  ELSE
+    Abort('sequence contains unhandled step');
+  END_CASE
+UNTIL _step.IsNotRepeatable() OR_ELSE NOT Busy END_REPEAT]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

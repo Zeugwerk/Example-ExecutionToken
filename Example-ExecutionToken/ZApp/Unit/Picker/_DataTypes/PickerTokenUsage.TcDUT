@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="PickerTokenUsage" Id="{1bbb9ca0-8fd7-4992-a16e-04588c8eede1}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+TYPE PickerTokenUsage :
+(
+	StartToken
+  ,ExecutionToken
+  ,SequenceAsToken
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

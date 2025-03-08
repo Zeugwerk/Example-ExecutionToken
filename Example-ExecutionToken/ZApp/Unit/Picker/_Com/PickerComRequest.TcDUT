@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="PickerComRequest" Id="{cec60d3d-7d51-46ef-824f-5b605d126f44}">
+    <Declaration><![CDATA[TYPE PickerComRequest :
+STRUCT
+  Start : BOOL;
+  Stop : BOOL;
+  GoHome : BOOL;
+  Halt : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="PickerUnitProgram" Id="{bfa9cfb6-08f1-4a5e-8cfe-77ecd80a6d7a}" SpecialFunc="None">
+    <Declaration><![CDATA[/// each unit can run in its own PROGRAM and Task, respectively. However, this is optional and one may also
+/// instantiate the unit in the ModuleProgram.
+/// In order to keep initialization to a minimum, all ModuleContext objects that are required by the Unit are
+/// given as FB_init parameter. These objects are
+/// * data structs
+/// * communication structs
+/// * busmaster(s)
+/// A unit should always be a root object (no parent) if it is running in its own context. If it runs in the same
+/// task as the Module the parent may be set to the Module's Application.
+PROGRAM PickerUnitProgram
+VAR
+{region "Picker"}
+{undefine RunInSeparateProgram}
+{IF NOT (defined (Picker_disabled)) AND (defined (RunInSeparateProgram))}
+  Picker : PickerUnit(displayName := 'Picker', // name of the unit (for logging)
+					  parent := 0, // caller of the Unit's cyclic method. If the Unit runs in its own context use 0
+						configdata := ZGlobal.Data.Config.Picker,
+						machinedata := ZGlobal.Data.Machine.Picker,
+						calibrationdata := ZGlobal.Data.Calibration.Picker,
+						com := ZGlobal.Com.Unit.Picker);
+  {attribute 'section' := '__ZwPlcUnitProgramDeclaration__'}
+  {attribute 'ZId' := 'c43c28b7-9e8c-48c6-a4f8-946be27888d3'}
+{END_IF}
+{endregion}
+{attribute '__ZwPlcUnitProgramDeclaration__'} // Do not remove this attribute! It is used for code generation.
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// run the unit - the cylics of all children will be called as well
+
+{region "Picker"}
+{undefine RunInSeparateProgram}
+{IF NOT (defined (Picker_disabled)) AND (defined (RunInSeparateProgram))}
+  Picker.Cyclic();
+  {attribute 'section' := '__ZwPlcUnitProgramImplementation__'}
+  {attribute 'ZId' := 'c43c28b7-9e8c-48c6-a4f8-946be27888d3'}
+{END_IF}
+{endregion}
+{attribute '__ZwPlcUnitProgramImplementation__'} // Do not remove this attribute! It is used for code generation.
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <Itf Name="IPicker" Id="{f87da058-7205-4724-9451-f3d4174d563f}">
+    <Declaration><![CDATA[INTERFACE IPicker EXTENDS ZApplication.IUnit
+]]></Declaration>
+  </Itf>
+</TcPlcObject>

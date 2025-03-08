@@ -1,0 +1,101 @@
+{
+  "fileversion": 1,
+  "solution": "Example-ExecutionToken.sln",
+  "projects": [
+    {
+      "name": "Example-ExecutionToken",
+      "plcs": [
+        {
+          "version": "1.0.0.0",
+          "distributor-name": null,
+          "name": "Example-ExecutionToken",
+          "title": "Example-ExecutionToken",
+          "type": "Application",
+          "frameworks": {
+            "zeugwerk": {
+              "version": "1.7.4.1",
+              "references": [
+                "ZApplication",
+                "ZAux",
+                "ZCore",
+                "ZEquipment",
+                "ZPlatform"
+              ],
+              "repositories": [
+                "https://framework.zeugwerk.dev/Distribution"
+              ],
+              "hide": false,
+              "qualified-only": true
+            }
+          },
+          "packages": [
+            {
+              "version": "1.7.4.1",
+              "repository": "bot",
+              "name": "ZApplication",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Debug",
+              "distributor-name": "Zeugwerk GmbH"
+            },
+            {
+              "version": "1.7.4.1",
+              "repository": "bot",
+              "name": "ZAux",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Debug",
+              "distributor-name": "Zeugwerk GmbH"
+            },
+            {
+              "version": "1.7.4.1",
+              "repository": "bot",
+              "name": "ZCore",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Snapshot",
+              "distributor-name": "Zeugwerk GmbH"
+            },
+            {
+              "version": "1.7.4.1",
+              "repository": "bot",
+              "name": "ZEquipment",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Debug",
+              "distributor-name": "Zeugwerk GmbH"
+            },
+            {
+              "version": "1.7.4.1",
+              "repository": "bot",
+              "name": "ZPlatform",
+              "branch": "main",
+              "target": "TC3.1",
+              "configuration": "Debug",
+              "distributor-name": "Zeugwerk GmbH"
+            }
+          ],
+          "references": {
+            "*": [
+              "Tc3_Module=*"
+            ]
+          },
+          "repositories": [],
+          "bindings": {},
+          "patches": {
+            "platform": {},
+            "argument": {},
+            "license": {}
+          },
+          "icon-file": "",
+          "project-url": "",
+          "display-name": "Example-ExecutionToken",
+          "entitlement": "",
+          "license": "",
+          "license-file": "",
+          "license-tmc-file": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="PickerDataConfig" Id="{7205ea24-b5d3-405b-8359-986e7345fef2}">
+    <Declaration><![CDATA[/// configuration data that is used during boot to configure the Units equipment
+TYPE PickerDataConfig :
+STRUCT
+  Simulated : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

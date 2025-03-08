@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="PickerComSubscribeEquipment" Id="{8102e1fa-61c6-463c-8947-53282c5dbd5c}">
+    <Declaration><![CDATA[TYPE PickerComSubscribeEquipment :
+STRUCT
+
+{region "Vertical : Axis"}
+  Vertical : ZApplication.AxisComSubscribe;
+  {attribute 'ZId' := '1181714e-d83e-4cf6-aa91-287de19a3556'}
+{endregion}
+
+{attribute '__ZwPlcUnitComDeclaration__'} // Do not remove this attribute! It is used for code generation.
+
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ZComUnit" Id="{dcdd230e-27a3-485c-b060-79109a96f888}">
+    <Declaration><![CDATA[TYPE ZComUnit :
+STRUCT
+{region "Picker"}
+{IF NOT (defined (Picker_disabled))}
+  Picker : PickerCom;
+  {attribute 'ZId' := 'c43c28b7-9e8c-48c6-a4f8-946be27888d3'}
+{END_IF}
+{endregion}
+{attribute '__ZwPlcApplicationComUnitDeclaration__'} // Do not remove this attribute! It is used for code generation.
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

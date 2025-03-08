@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="PickerEquipment" Id="{57cf5c50-728d-41ab-a3db-0e3d2f9fd80d}" SpecialFunc="None">
+    <Declaration><![CDATA[/// This function block is a container for equipment that is used by this unit.
+/// Equipment is grouped by its kind (actuator, axes, io, ...).
+/// It extends from [ManagedObjectContainer](xref:ZCore.ManagedObjectContainer) such that the parent
+/// (= the unit itself) can be passed to equipment instances.
+FUNCTION_BLOCK PickerEquipment EXTENDS PickerContainer
+VAR_INPUT
+  Io : PickerIo(_parent);
+  Actuator : PickerActuator(_parent);
+  Axis : PickerAxis(_parent);
+  Fieldbus : PickerFieldbus(_parent);
+  Unit : PickerLinkedUnit(_parent);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

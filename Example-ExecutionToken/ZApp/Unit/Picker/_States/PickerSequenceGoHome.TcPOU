@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="PickerSequenceGoHome" Id="{920f8c6b-066c-4384-aa33-57319c6a5d7c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PickerSequenceGoHome EXTENDS PickerSequence IMPLEMENTS ZCore.ISequence
+VAR
+  _step : ZCore.Step(PickerStep.GohomeBegin, PickerStep.GohomeEnd);
+  _timer : ZAux.Timer;
+  
+  _startToken : ZCore.StartToken;
+  _executionToken : ZCore.ExecutionToken;
+  
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // "Async" methods accept an IStartToken parameter to indicate whether 
+  // the method was executed successfully. Additional to the StartToken, 
+  // an ZCore.ExcecutionToken is now available to not only check if the 
+  // method call was successful, but also to monitor the whole execution 
+  // of the task. The ExecutionToken gets informed (aborted), if the 
+  // originally started task changed unexpected.
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  // Change this value to see what happens with differnt object used as the startToken parameter
+  _tokenUsage : PickerTokenUsage := PickerTokenUsage.StartToken;
+  
+  _usedToken : ZCore.IStartToken;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT Busy THEN
+  RETURN;
+END_IF
+
+IF OnStart(_step) THEN
+  ; // init custom sequence variables here ...
+END_IF
+
+IF OnStop() THEN
+  RETURN; // external stop was triggered
+END_IF
+
+IF OnHalt() THEN
+  ; // Halting := TRUE; // Uncomment to acknowledge that the sequence is halting
+END_IF
+
+REPEAT
+  LogStep();
+
+  CASE _step.Index OF
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    PickerStep.GoHomeBegin:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      IF _step.OnEntry()
+      THEN      
+        // move to 0 initially
+        _axis.Vertical.MoveAbsoluteAsync(THIS^, 0, 100);        
+			END_IF
+      
+      Await(_axis.Vertical, nextStep:=PickerStep.GoHomeMoveAxisTo60);
+
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    PickerStep.GoHomeMoveAxisTo60:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      IF _step.OnEntry()
+      THEN        
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // Choose the token to be used as the startToken for the Async call
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+        _startToken.Recover();
+        _executionToken.Recover();            
+        CASE _tokenUsage OF
+          PickerTokenUsage.StartToken:      _usedToken := _startToken;
+          PickerTokenUsage.ExecutionToken:  _usedToken := _executionToken;
+          PickerTokenUsage.SequenceAsToken: _usedToken := THIS^;
+				END_CASE
+
+        _timer.WaitAsync(2);
+        
+        // start moving to 30
+        _axis.Vertical.MoveAbsoluteAsync(_usedToken, 30, 10);
+      END_IF
+      
+      IF _timer.OnDone() THEN
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // Change the target position after 2 seconds --> no problem, 
+        // because by using the same token you make a deliberate change
+        // of the originally task.
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+        _axis.Vertical.MoveAbsoluteAsync(_usedToken, 60, 10);
+			END_IF
+      
+      Await(obj1:=_axis.Vertical, nextStep:=PickerStep.GoHomeMoveAxisBackTo0);
+
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    PickerStep.GoHomeMoveAxisBackTo0:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      IF _step.OnEntry()
+      THEN        
+        _timer.WaitAsync(2);
+        
+        // start moving to 0
+        _axis.Vertical.MoveAbsoluteAsync(_usedToken, 0, 10);
+      END_IF
+      
+      IF _timer.OnDone() THEN
+        // stop the axis after 2 seconds without token - this is an unexpected change of the originally started MoveAbsoluteAsync task.
+        _axis.Vertical.StopAsync(0);
+        
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // What happens depends on the token which was used to start the Movement!
+        //
+        // Using the _startToken (ZCore.StartToken):
+        //   The change is not recognized by the sequence, as the StartToken is only 
+        //   used by Async methods to indicate whether the method call was successful.
+        //   After Stop is finished, the sequence continues with the next step as
+        //   the axis changes to Idle.
+        //
+        // Using the _executionToken (ZCore.ExecutionToken):
+        //   The change is recognized by the _executionToken, as the ExecutionToken is 
+        //   additionally to the StartToken used to monitor unexpected changes of the 
+        //   originally started task.
+        //
+        // Using the sequence (THIS^):
+        //   A sequence is a ZCore.ExecutionToken.
+        //   The change is automatically recognized by the sequence, as it is aborted
+        //   when the unexpected change occurs. You have nothing to do, the sequence
+        //   is in Error state an will be ended as if you would call Abort().  
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~               
+        
+			END_IF
+      
+      // If an ExecutionToken is used, you can observe it to recognize an unexpected change of the originally started task
+      IF NOT Assert(_executionToken) THEN
+        _logger.Error('The ExecutionToken used to monitor the movement was informed of an unexpected change');
+      ELSIF Error THEN
+        _logger.Error('The Sequence used to monitor the movement was informed of an unexpected change');
+			END_IF
+      
+      Await(obj1:=_axis.Vertical, nextStep:=PickerStep.GoHomeEnd);
+
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    PickerStep.GoHomeEnd:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      SetBusy(FALSE);
+  
+  ELSE
+    Abort('sequence contains unhandled step');
+  END_CASE
+UNTIL _step.IsNotRepeatable() OR_ELSE NOT Busy END_REPEAT]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="PickerSequenceBoot" Id="{f492b112-acd4-4258-ab00-c5decb7eaad6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK PickerSequenceBoot EXTENDS PickerSequence IMPLEMENTS ZCore.ISequence
+VAR
+  _step : ZCore.Step(PickerStep.BootBegin, PickerStep.BootEnd);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF OnStart(_step) THEN
+  ; // init custom sequence variables here ...
+END_IF
+
+REPEAT
+  LogStep();
+
+  CASE _step.Index OF
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    PickerStep.BootBegin:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      IF _step.OnEntry()
+      THEN
+        // initialize equipment
+        _io();
+        _actuator();
+        _fieldbus();
+        _axis();
+        _unit();
+      END_IF
+      
+      _parent._objectManager.Cyclic();      
+      Assert(_parent._objectManager);
+      IF _parent._objectManager.Booted
+      THEN
+        _step.SetNext(PickerStep.BootEnd);
+      END_IF
+
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+    PickerStep.BootEnd:
+    (* -------------------------------------------------------------------------------------------------------------------------------- *)
+      SetBusy(FALSE);
+      
+  ELSE
+    Abort('sequence contains unhandled step');
+  END_CASE
+UNTIL _step.IsNotRepeatable() OR_ELSE NOT Busy END_REPEAT]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

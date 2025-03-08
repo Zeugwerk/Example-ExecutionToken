@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="PickerDataCalibration" Id="{ae9046f4-b5bd-4809-8956-ca2e0830b405}">
+    <Declaration><![CDATA[/// calibration that is determined by calibration sequences of the unit (static offsets, shifts)
+TYPE PickerDataCalibration :
+STRUCT
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

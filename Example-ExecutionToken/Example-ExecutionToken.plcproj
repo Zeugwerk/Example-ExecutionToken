@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FileVersion>1.0.0.0</FileVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0b15a158-6d3a-4686-9305-d431ee1409e0}</ProjectGuid>
+    <SubObjectsSortedByName>True</SubObjectsSortedByName>
+    <DownloadApplicationInfo>true</DownloadApplicationInfo>
+    <WriteProductVersion>false</WriteProductVersion>
+    <GenerateTpy>false</GenerateTpy>
+    <Name>Example_ExecutionToken</Name>
+    <ProgramVersion>3.1.4024.0</ProgramVersion>
+    <Application>{1ff5cbe9-9d32-42cb-9b1e-c4e13af30599}</Application>
+    <TypeSystem>{bfbf3dc2-92df-43a2-9140-fd63dc3d92cb}</TypeSystem>
+    <Implicit_Task_Info>{5198f008-3f8b-49b8-bf1b-dd86b69cf66a}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{0683d0d2-9845-4f9f-9fe1-320af67e9975}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{0786a021-8061-48ab-8217-cd71972527de}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{b52b67ea-7a7e-4ba3-9be9-5ff4c60de439}</LibraryReferences>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ZApp\App\ZApp.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\App\_DataTypes\ZAppStep.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\App\_States\ZAppSequenceBoot.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\App\_States\ZAppSequenceBootFault.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\App\_States\ZAppSequenceRunning.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\App\_SubObjects\ZAppSequence.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Com\_DataTypes\ZCom.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Com\_DataTypes\ZComUnit.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Data\_DataTypes\ZData.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Data\_DataTypes\ZDataMachine.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Data\_DataTypes\ZDataConfig.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Data\_DataTypes\ZDataCalibration.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Data\_DataTypes\ZDataRecipe.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\IPicker.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\PickerUnit.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\PickerUnitProgram.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Com\PickerCom.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Com\PickerComPublish.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Com\PickerComPublishEquipment.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Com\PickerComRef.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Com\PickerComRequest.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Com\PickerComSubscribe.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Com\PickerComSubscribeEquipment.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_DataTypes\PickerState.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_DataTypes\PickerStep.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_DataTypes\PickerTokenUsage.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Data\PickerDataCalibration.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Data\PickerDataConfig.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Data\PickerDataMachine.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Data\PickerDataRef.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Equipment\PickerActuator.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Equipment\PickerAxis.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Equipment\PickerEquipment.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Equipment\PickerFieldbus.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Equipment\PickerIo.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_Equipment\PickerLinkedUnit.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_States\PickerSequenceAutomatic.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_States\PickerSequenceBoot.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_States\PickerSequenceFaultReaction.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_States\PickerSequenceGoHome.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_States\PickerSequenceStop.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_SubObjects\PickerContainer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\Unit\Picker\_SubObjects\PickerSequence.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\ZGlobal.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="ZApp\ZModuleProgram.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ZApp\ZModuleTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ZApp\App" />
+    <Folder Include="ZApp\App\_DataTypes" />
+    <Folder Include="ZApp\App\_States" />
+    <Folder Include="ZApp\App\_SubObjects" />
+    <Folder Include="ZApp\Com" />
+    <Folder Include="ZApp\Com\_DataTypes" />
+    <Folder Include="ZApp\Data" />
+    <Folder Include="ZApp\Data\_DataTypes" />
+    <Folder Include="ZApp" />
+    <Folder Include="ZApp\Unit" />
+    <Folder Include="ZApp\Unit\Picker" />
+    <Folder Include="ZApp\Unit\Picker\_Com" />
+    <Folder Include="ZApp\Unit\Picker\_Data" />
+    <Folder Include="ZApp\Unit\Picker\_DataTypes" />
+    <Folder Include="ZApp\Unit\Picker\_Equipment" />
+    <Folder Include="ZApp\Unit\Picker\_States" />
+    <Folder Include="ZApp\Unit\Picker\_SubObjects" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="Tc3_Module">
+      <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_Module</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="ZApplication">
+      <DefaultResolution>ZApplication, 1.7.4.1 (Zeugwerk GmbH)</DefaultResolution>
+      <Namespace>ZApplication</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="ZAux">
+      <DefaultResolution>ZAux, 1.7.4.1 (Zeugwerk GmbH)</DefaultResolution>
+      <Namespace>ZAux</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="ZCore">
+      <DefaultResolution>ZCore, 1.7.4.1 (Zeugwerk GmbH)</DefaultResolution>
+      <Namespace>ZCore</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="ZEquipment">
+      <DefaultResolution>ZEquipment, 1.7.4.1 (Zeugwerk GmbH)</DefaultResolution>
+      <Namespace>ZEquipment</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="ZPlatform">
+      <DefaultResolution>ZPlatform, 1.7.4.1 (Zeugwerk GmbH)</DefaultResolution>
+      <Namespace>ZPlatform</Namespace>
+    </PlaceholderReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderResolution Include="ZApplication">
+      <Resolution>ZApplication, 1.7.4.1 (Zeugwerk GmbH)</Resolution>
+    </PlaceholderResolution>
+    <PlaceholderResolution Include="ZAux">
+      <Resolution>ZAux, 1.7.4.1 (Zeugwerk GmbH)</Resolution>
+    </PlaceholderResolution>
+    <PlaceholderResolution Include="ZCore">
+      <Resolution>ZCore, 1.7.4.1 (Zeugwerk GmbH)</Resolution>
+    </PlaceholderResolution>
+    <PlaceholderResolution Include="ZEquipment">
+      <Resolution>ZEquipment, 1.7.4.1 (Zeugwerk GmbH)</Resolution>
+    </PlaceholderResolution>
+    <PlaceholderResolution Include="ZPlatform">
+      <Resolution>ZPlatform, 1.7.4.1 (Zeugwerk GmbH)</Resolution>
+    </PlaceholderResolution>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Example-ExecutionToken.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <PlcProjectOptions>
+      <XmlArchive>
+  <Data>
+    <o xml:space="preserve" t="OptionKey">
+      <v n="Name">"&lt;ProjectRoot&gt;"</v>
+      <d n="SubKeys" t="Hashtable" ckt="String" cvt="OptionKey">
+        <v>{40450F57-0AA3-4216-96F3-5444ECB29763}</v>
+        <o>
+          <v n="Name">"{40450F57-0AA3-4216-96F3-5444ECB29763}"</v>
+          <d n="SubKeys" t="Hashtable" />
+          <d n="Values" t="Hashtable" ckt="String" cvt="String">
+            <v>ActiveVisuProfile</v>
+            <v>IR0whWr8bwfwBwAAiD2qpQAAAABVAgAA37x72QAAAAABAAAAAAAAAAEaUwB5AHMAdABlAG0ALgBTAHQAcgBpAG4AZwACTHsAZgA5ADUAYgBiADQAMgA2AC0ANQA1ADIANAAtADQAYgA0ADUALQA5ADQAMAAwAC0AZgBiADAAZgAyAGUANwA3AGUANQAxAGIAfQADCE4AYQBtAGUABDBUAHcAaQBuAEMAQQBUACAAMwAuADEAIABCAHUAaQBsAGQAIAA0ADAAMgA0AC4ANwAFFlAAcgBvAGYAaQBsAGUARABhAHQAYQAGTHsAMQA2AGUANQA1AGIANgAwAC0ANwAwADQAMwAtADQAYQA2ADMALQBiADYANQBiAC0ANgAxADQANwAxADMAOAA3ADgAZAA0ADIAfQAHEkwAaQBiAHIAYQByAGkAZQBzAAhMewAzAGIAZgBkADUANAA1ADkALQBiADAANwBmAC0ANABkADYAZQAtAGEAZQAxAGEALQBhADgAMwAzADUANgBhADUANQAxADQAMgB9AAlMewA5AGMAOQA1ADgAOQA2ADgALQAyAGMAOAA1AC0ANAAxAGIAYgAtADgAOAA3ADEALQA4ADkANQBmAGYAMQBmAGUAZABlADEAYQB9AAoOVgBlAHIAcwBpAG8AbgALBmkAbgB0AAwKVQBzAGEAZwBlAA0KVABpAHQAbABlAA4aVgBpAHMAdQBFAGwAZQBtAE0AZQB0AGUAcgAPDkMAbwBtAHAAYQBuAHkAEAxTAHkAcwB0AGUAbQARElYAaQBzAHUARQBsAGUAbQBzABIwVgBpAHMAdQBFAGwAZQBtAHMAUwBwAGUAYwBpAGEAbABDAG8AbgB0AHIAbwBsAHMAEyhWAGkAcwB1AEUAbABlAG0AcwBXAGkAbgBDAG8AbgB0AHIAbwBsAHMAFCRWAGkAcwB1AEUAbABlAG0AVABlAHgAdABFAGQAaQB0AG8AcgAVIlYAaQBzAHUATgBhAHQAaQB2AGUAQwBvAG4AdAByAG8AbAAWFHYAaQBzAHUAaQBuAHAAdQB0AHMAFwxzAHkAcwB0AGUAbQAYGFYAaQBzAHUARQBsAGUAbQBCAGEAcwBlABkmRABlAHYAUABsAGEAYwBlAGgAbwBsAGQAZQByAHMAVQBzAGUAZAAaCGIAbwBvAGwAGyJQAGwAdQBnAGkAbgBDAG8AbgBzAHQAcgBhAGkAbgB0AHMAHEx7ADQAMwBkADUAMgBiAGMAZQAtADkANAAyAGMALQA0ADQAZAA3AC0AOQBlADkANAAtADEAYgBmAGQAZgAzADEAMABlADYAMwBjAH0AHRxBAHQATABlAGEAcwB0AFYAZQByAHMAaQBvAG4AHhRQAGwAdQBnAGkAbgBHAHUAaQBkAB8WUwB5AHMAdABlAG0ALgBHAHUAaQBkACBIYQBmAGMAZAA1ADQANAA2AC0ANAA5ADEANAAtADQAZgBlADcALQBiAGIANwA4AC0AOQBiAGYAZgBlAGIANwAwAGYAZAAxADcAIRRVAHAAZABhAHQAZQBJAG4AZgBvACJMewBiADAAMwAzADYANgBhADgALQBiADUAYwAwAC0ANABiADkAYQAtAGEAMAAwAGUALQBlAGIAOAA2ADAAMQAxADEAMAA0AGMAMwB9ACMOVQBwAGQAYQB0AGUAcwAkTHsAMQA4ADYAOABmAGYAYwA5AC0AZQA0AGYAYwAtADQANQAzADIALQBhAGMAMAA2AC0AMQBlADMAOQBiAGIANQA1ADcAYgA2ADkAfQAlTHsAYQA1AGIAZAA0ADgAYwAzAC0AMABkADEANwAtADQAMQBiADUALQBiADEANgA0AC0ANQBmAGMANgBhAGQAMgBiADkANgBiADcAfQAmFk8AYgBqAGUAYwB0AHMAVAB5AHAAZQAnVFUAcABkAGEAdABlAEwAYQBuAGcAdQBhAGcAZQBNAG8AZABlAGwARgBvAHIAQwBvAG4AdgBlAHIAdABpAGIAbABlAEwAaQBiAHIAYQByAGkAZQBzACgQTABpAGIAVABpAHQAbABlACkUTABpAGIAQwBvAG0AcABhAG4AeQAqHlUAcABkAGEAdABlAFAAcgBvAHYAaQBkAGUAcgBzACs4UwB5AHMAdABlAG0ALgBDAG8AbABsAGUAYwB0AGkAbwBuAHMALgBIAGEAcwBoAHQAYQBiAGwAZQAsEnYAaQBzAHUAZQBsAGUAbQBzAC1INgBjAGIAMQBjAGQAZQAxAC0AZAA1AGQAYwAtADQAYQAzAGIALQA5ADAANQA0AC0AMgAxAGYAYQA3ADUANgBhADMAZgBhADQALihJAG4AdABlAHIAZgBhAGMAZQBWAGUAcgBzAGkAbwBuAEkAbgBmAG8AL0x7AGMANgAxADEAZQA0ADAAMAAtADcAZgBiADkALQA0AGMAMwA1AC0AYgA5AGEAYwAtADQAZQAzADEANABiADUAOQA5ADYANAAzAH0AMBhNAGEAagBvAHIAVgBlAHIAcwBpAG8AbgAxGE0AaQBuAG8AcgBWAGUAcgBzAGkAbwBuADIMTABlAGcAYQBjAHkAMzBMAGEAbgBnAHUAYQBnAGUATQBvAGQAZQBsAFYAZQByAHMAaQBvAG4ASQBuAGYAbwA0MEwAbwBhAGQATABpAGIAcgBhAHIAaQBlAHMASQBuAHQAbwBQAHIAbwBqAGUAYwB0ADUaQwBvAG0AcABhAHQAaQBiAGkAbABpAHQAeQDQAAIaA9ADAS0E0AUGGgfQBwgaAUUHCQjQAAkaBEUKCwQDAAAABQAAAA0AAAAAAAAA0AwLrQIAAADQDQEtDtAPAS0Q0AAJGgRFCgsEAwAAAAUAAAANAAAAKAAAANAMC60BAAAA0A0BLRHQDwEtENAACRoERQoLBAMAAAAFAAAADQAAAAAAAADQDAutAgAAANANAS0S0A8BLRDQAAkaBEUKCwQDAAAABQAAAA0AAAAUAAAA0AwLrQIAAADQDQEtE9APAS0Q0AAJGgRFCgsEAwAAAAUAAAANAAAAAAAAANAMC60CAAAA0A0BLRTQDwEtENAACRoERQoLBAMAAAAFAAAADQAAAAAAAADQDAutAgAAANANAS0V0A8BLRDQAAkaBEUKCwQDAAAABQAAAA0AAAAAAAAA0AwLrQIAAADQDQEtFtAPAS0X0AAJGgRFCgsEAwAAAAUAAAANAAAAKAAAANAMC60EAAAA0A0BLRjQDwEtENAZGq0BRRscAdAAHBoCRR0LBAMAAAAFAAAADQAAAAAAAADQHh8tINAhIhoCRSMkAtAAJRoFRQoLBAMAAAADAAAAAAAAAAoAAADQJgutAAAAANADAS0n0CgBLRHQKQEtENAAJRoFRQoLBAMAAAADAAAAAAAAAAoAAADQJgutAQAAANADAS0n0CgBLRHQKQEtEJoqKwFFAAEC0AABLSzQAAEtF9AAHy0t0C4vGgPQMAutAQAAANAxC60XAAAA0DIarQDQMy8aA9AwC60CAAAA0DELrQMAAADQMhqtANA0Gq0A0DUarQA=</v>
+          </d>
+        </o>
+      </d>
+      <d n="Values" t="Hashtable" />
+    </o>
+  </Data>
+  <TypeList>
+    <Type n="Hashtable">System.Collections.Hashtable</Type>
+    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+    <Type n="String">System.String</Type>
+  </TypeList>
+</XmlArchive>
+    </PlcProjectOptions>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="PickerComRef" Id="{4add72d8-7ace-46ea-8047-b5d2470c4721}">
+    <Declaration><![CDATA[/// container for all communication data types that are used by the unit
+TYPE PickerComRef :
+STRUCT
+  Publish : REFERENCE TO PickerComPublish; 
+  Subscribe : REFERENCE TO PickerComSubscribe; 
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

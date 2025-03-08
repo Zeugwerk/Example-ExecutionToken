@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="PickerStep" Id="{61920b2e-6beb-4eb6-94cb-64185ebebd3b}">
+    <Declaration><![CDATA[/// This enumeration contains all steps that are used by the various sequences of a unit.
+/// Sequences use a subrange (***Begin to ***End) of this enumeration.
+{attribute 'qualified_only'}
+{attribute 'to_string'}
+TYPE PickerStep :
+(
+  Undefined := 0
+  
+  ,BootBegin
+  ,BootEnd 
+
+  ,StopBegin
+  ,StopEnd
+
+  ,AutomaticBegin
+  ,AutomaticEnd
+  
+  ,GoHomeBegin
+  ,GoHomeMoveAxisTo60
+  ,GoHomeMoveAxisBackTo0
+  ,GoHomeEnd 
+  
+  ,FaultReactionBegin
+  ,FaultReactionEnd
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

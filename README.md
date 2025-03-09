@@ -20,11 +20,6 @@ Get the installer from [https://github.com/Zeugwerk/Zeugwerk-Development-Kit/rel
 
 - Then open the Solution Example-ExecutionToken with TcXAEShell
 
-Activate the Zeugwerk Framework license for the application.
-  
-<img src="Images/2a_addLicense1.png" alt="image" style="width:150px;border-style:solid"> \
-<img src="Images/2a_addLicense2.png" alt="image" style="width:500px;height:auto;border-style:solid;margin-bottom:10px">
-  
 Right click on the References node, open the Twinpack Catalog and restore all referenced libraries.
   
 <img src="Images/1_referencesContextMenu.png" alt="image" style="width:500px;height:auto;border-style:solid">

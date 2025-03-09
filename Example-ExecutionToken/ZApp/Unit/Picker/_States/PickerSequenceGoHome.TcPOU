@@ -18,7 +18,7 @@ VAR
   // originally started task changed unexpected.
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
-  // Change this value to see what happens with differnt object used as the startToken parameter
+  // Change this value to see what happens with differnt objects used as the startToken parameter
   _tokenUsage : PickerTokenUsage := PickerTokenUsage.StartToken;
   
   _usedToken : ZCore.IStartToken;

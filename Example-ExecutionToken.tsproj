@@ -984,6 +984,11 @@ External Setpoint Generation:
 	</DataTypes>
 	<Project ProjectGUID="{E5C64D1D-C46F-4CF3-8427-0B32185E5F81}" TargetNetId="199.4.42.250.1.1" Target64Bit="true" ShowHideConfigurations="#x6">
 		<System>
+			<Licenses>
+				<Target>
+					<ManualSelect>{86B1B55C-B422-4C10-A9C3-EF086C866F28}</ManualSelect>
+				</Target>
+			</Licenses>
 			<Tasks>
 				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
 					<Name>ZModuleTask</Name>
@@ -992,7 +997,7 @@ External Setpoint Generation:
 		</System>
 		<Plc>
 			<Project GUID="{0B15A158-6D3A-4686-9305-D431EE1409E0}" Name="Example-ExecutionToken" PrjFilePath="Example-ExecutionToken\Example-ExecutionToken.plcproj" TmcFilePath="Example-ExecutionToken\Example-ExecutionToken.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{CA1C7470-2B86-8E9C-A08D-7B76C6EF8103}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="Example-ExecutionToken\Example-ExecutionToken.tmc" TmcHash="{015DE407-69ED-28AB-5868-16D0F764FD10}">
 					<Name>Example-ExecutionToken Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">

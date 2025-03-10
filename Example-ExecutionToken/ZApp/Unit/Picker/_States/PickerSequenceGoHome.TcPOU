@@ -1,22 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
   <POU Name="PickerSequenceGoHome" Id="{920f8c6b-066c-4384-aa33-57319c6a5d7c}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK PickerSequenceGoHome EXTENDS PickerSequence IMPLEMENTS ZCore.ISequence
+    <Declaration><![CDATA[/// "Async" methods accept an IStartToken parameter to indicate whether 
+/// the method was executed successfully. Additional to the StartToken, 
+/// an ZCore.ExcecutionToken is now available to not only check if the 
+/// method call was successful, but also to monitor the whole execution 
+/// of the task. The ExecutionToken gets informed (aborted), if the 
+/// originally started task changed unexpected.
+FUNCTION_BLOCK PickerSequenceGoHome EXTENDS PickerSequence IMPLEMENTS ZCore.ISequence
 VAR
   _step : ZCore.Step(PickerStep.GohomeBegin, PickerStep.GohomeEnd);
   _timer : ZAux.Timer;
   
   _startToken : ZCore.StartToken;
   _executionToken : ZCore.ExecutionToken;
-  
-  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  // "Async" methods accept an IStartToken parameter to indicate whether 
-  // the method was executed successfully. Additional to the StartToken, 
-  // an ZCore.ExcecutionToken is now available to not only check if the 
-  // method call was successful, but also to monitor the whole execution 
-  // of the task. The ExecutionToken gets informed (aborted), if the 
-  // originally started task changed unexpected.
-  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
   // Change this value to see what happens with differnt objects used as the startToken parameter
   _tokenUsage : PickerTokenUsage := PickerTokenUsage.StartToken;

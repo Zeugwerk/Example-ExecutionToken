@@ -30,49 +30,69 @@
           },
           "packages": [
             {
-              "version": "1.7.4.1",
+              "version": "1.6.0.6",
               "repository": "bot",
               "name": "ZApplication",
-              "branch": "main",
+              "branch": "release/1.6",
               "target": "TC3.1",
-              "configuration": "Debug",
-              "distributor-name": "Zeugwerk GmbH"
+              "configuration": "Distribution",
+              "distributor-name": "Zeugwerk GmbH",
+              "options": {
+                "dependency-references": true,
+                "qualified-only": true
+              }
             },
             {
-              "version": "1.7.4.1",
+              "version": "1.6.0.6",
               "repository": "bot",
               "name": "ZAux",
-              "branch": "main",
+              "branch": "release/1.6",
               "target": "TC3.1",
-              "configuration": "Debug",
-              "distributor-name": "Zeugwerk GmbH"
+              "configuration": "Distribution",
+              "distributor-name": "Zeugwerk GmbH",
+              "options": {
+                "dependency-references": true,
+                "qualified-only": true
+              }
             },
             {
-              "version": "1.7.4.1",
+              "version": "1.6.0.6",
               "repository": "bot",
               "name": "ZCore",
-              "branch": "main",
+              "branch": "release/1.6",
               "target": "TC3.1",
-              "configuration": "Snapshot",
-              "distributor-name": "Zeugwerk GmbH"
+              "configuration": "Distribution",
+              "distributor-name": "Zeugwerk GmbH",
+              "options": {
+                "dependency-references": true,
+                "qualified-only": true
+              }
             },
             {
-              "version": "1.7.4.1",
+              "version": "1.6.0.6",
               "repository": "bot",
               "name": "ZEquipment",
-              "branch": "main",
+              "branch": "release/1.6",
               "target": "TC3.1",
-              "configuration": "Debug",
-              "distributor-name": "Zeugwerk GmbH"
+              "configuration": "Distribution",
+              "distributor-name": "Zeugwerk GmbH",
+              "options": {
+                "dependency-references": true,
+                "qualified-only": true
+              }
             },
             {
-              "version": "1.7.4.1",
+              "version": "1.6.0.6",
               "repository": "bot",
               "name": "ZPlatform",
-              "branch": "main",
+              "branch": "release/1.6",
               "target": "TC3.1",
-              "configuration": "Debug",
-              "distributor-name": "Zeugwerk GmbH"
+              "configuration": "Distribution",
+              "distributor-name": "Zeugwerk GmbH",
+              "options": {
+                "dependency-references": true,
+                "qualified-only": true
+              }
             }
           ],
           "references": {
@@ -87,9 +107,11 @@
             "argument": {},
             "license": {}
           },
+          "description": "",
           "icon-file": "",
           "project-url": "",
           "display-name": "Example-ExecutionToken",
+          "authors": "",
           "entitlement": "",
           "license": "",
           "license-file": "",

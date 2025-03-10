@@ -7,7 +7,7 @@ This is an example of how to use different types of IStartToken objects as a par
 The example is a Zeugwerk Application with a unit Picker. The units equipment includes an axis "Vertical".
 In the homing sequence of the unit we move the axis to position 30, change the target position to 60 after two seconds and stop the axis after another two seconds.
 
-The can find the sequence under **ZApp/Unit/Picker/_States/PickerSequenceGoHome**
+The user can find the sequence under **ZApp/Unit/Picker/_States/PickerSequenceGoHome**
 By changing the value of the variable **_tokenUsage** in the sequence, you can use different objects as the IStartToken parameter for the "Async" method calls.
   
 Read the comments about what changes with the different IStartToken objects or run the example to see the difference.
@@ -62,7 +62,7 @@ TRC |03-09|18:11:33.822|Picker | AxisSimulated |Vertical | MoveAbsolute step cha
 
 ```
 
-- Repeat the homing sequence with different IStartToken objects and see the difference
+- Repeat the homing sequence with different **_tokenUsage** settings and therefore different IStartToken objects to see the different behavior of the objects.
 
 
 ## Questions?
